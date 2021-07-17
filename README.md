@@ -48,3 +48,5 @@ In `extnp.algo` there are two functions to multiply all elements in the Numpy ar
 
 * `cpp_multiply`: a wrapper that calls the C++ function to perform the multiplication
 * `py_multiply`: a simple python function to do the same thing
+
+Check [extnp/algo/src/wrapper.cpp](https://github.com/mgao6767/python-cpp-extension-numpy/blob/main/extnp/algo/src/wrapper.cpp) for details.
