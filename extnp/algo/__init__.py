@@ -16,3 +16,7 @@ def cpp_multiply(data: np.ndarray, k: float) -> np.ndarray:
     result = np.empty(data.size)
     algo1_ext.multiply_by(data, result, k)
     return result
+
+
+def py_multiply(data: np.ndarray, k: float) -> np.ndarray:
+    return data * k

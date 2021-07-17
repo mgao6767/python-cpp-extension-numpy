@@ -9,8 +9,8 @@ This repo presents a minimal example of developing a C/C++ extension in a Python
 |--|--|--algo1.hpp
 |--|--|--wrapper.cpp
 |--|--__init__.py
-|__init__.py
-|setup.py
+|--__init__.py
+|--setup.py
 ```
 
 ## Example
@@ -25,10 +25,10 @@ pip install .
 Then, try it out:
 
 ```Python
->>> from extnp.algo import cpp_multiply
+>>> from extnp.algo import cpp_multiply, py_multiply
 >>> import numpy as np
 >>> data = np.array([i for i in range(100)], dtype=np.double)
->>> cpp_multiply(data, 2)
+>>> cpp_multiply(data, k=2)
 array([  0.,   2.,   4.,   6.,   8.,  10.,  12.,  14.,  16.,  18.,  20.,
         22.,  24.,  26.,  28.,  30.,  32.,  34.,  36.,  38.,  40.,  42.,
         44.,  46.,  48.,  50.,  52.,  54.,  56.,  58.,  60.,  62.,  64.,
@@ -38,4 +38,13 @@ array([  0.,   2.,   4.,   6.,   8.,  10.,  12.,  14.,  16.,  18.,  20.,
        154., 156., 158., 160., 162., 164., 166., 168., 170., 172., 174.,
        176., 178., 180., 182., 184., 186., 188., 190., 192., 194., 196.,
        198.])
+>>> np.array_equal(cpp_multiply(data,2), py_multiply(data,2))
+True
 ```
+
+## Note
+
+In `extnp.algo` there are two functions to multiply all elements in the Numpy array by `k`:
+
+* `cpp_multiply`: a wrapper that calls the C++ function to perform the multiplication
+* `py_multiply`: a simple python function to do the same thing
